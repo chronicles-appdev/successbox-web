@@ -1,0 +1,125 @@
+<ion-header mode="ios">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/start']"></ion-icon>
+    <ion-title class="ion-text-center">
+      Score Sheet
+
+    </ion-title>
+
+    <ion-icon name="document-text-outline"  slot="end" size="large" color="primary" [routerLink]="['/tabs/cbt-review', tt_id]"></ion-icon>
+    <!-- <ion-icon name="pie-chart-outline"> -->
+    <!-- </ion-icon> -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+
+  <div class="body">
+        <div *ngIf="total <= 30">
+
+
+
+            <img  src="../../../assets/result1.png" height="120px" width="120px">
+            <p style="margin-top: 1rem;">Your score is: </p>
+            <h1  style="color: red; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+            <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+              <ion-label class="ion-text-center custom-spinner">
+                <ion-progress-bar [value]="total/100" color="danger"></ion-progress-bar>
+
+              </ion-label>
+
+            </div>
+        </div>
+
+
+        <div *ngIf="total < 50 && total > 30">
+
+          <img  src="../../../assets/result.png" height="120px" width="120px">
+
+
+          <p style="margin-top: 1rem;">Your score is: </p>
+          <h1 style="color: goldenrod; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+          <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+            <ion-label class="ion-text-center custom-spinner">
+              <ion-progress-bar [value]="total/100" color="warning"></ion-progress-bar>
+
+            </ion-label>
+
+          </div>
+        </div>
+
+              <div *ngIf="total >= 50">
+
+                <img src="../../../assets/congrats.png">
+
+
+                <p style="margin-top: 1rem;">Your score is: </p>
+                <h1 style="color: green; font-size: 34px;">{{ total | number:'1.0-2' }}%</h1>
+
+                <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+                  <ion-label class="ion-text-center custom-spinner">
+                    <ion-progress-bar [value]="total/100" color="success"></ion-progress-bar>
+
+                  </ion-label>
+
+                </div>
+              </div>
+
+
+
+
+
+          <!-- <img *ngIf="total <= 50" src="../../../assets/result1.png" height="120px" width="120px">
+            <p style="margin-top: 1rem;">Your score is: </p>
+            <h1 *ngIf="total > 50" style="color: red;">{{ total | number:'1.0-2' }}%</h1>
+
+      <div class="ion-text-center" style="margin-bottom: 4rem; width: 80%; ">
+            <ion-label *ngIf="total > 50" class="ion-text-center custom-spinner">
+              <ion-progress-bar [value]="total/100" color="danger"></ion-progress-bar>
+
+            </ion-label>
+
+         </div> -->
+
+        <div style="margin-top: 5px; margin-bottom: 10px;">
+
+
+            <ion-label style="color: green; margin-top: 1rem">
+              <ion-icon name="checkmark-done-circle-outline"></ion-icon> No.of
+              correctly answered: <span>{{ scoreData.correctly_answered }}</span></ion-label>
+            <br>
+
+            <ion-label style="color: red">
+
+              <ion-icon name="close-circle-outline"></ion-icon> No.of wrongly answered: <span>{{
+              scoreData.total_questions - scoreData.correctly_answered }}</span></ion-label>
+            <br>
+            <h5 style="">Total Questions: <span>{{ scoreData.total_questions }}</span></h5>
+
+
+
+
+        </div>
+
+    <div style="margin-top: 2rem;">
+
+      <!-- <a [routerLink]="['/tabs/dashboard', tt_id]">
+        <ion-icon name="home"></ion-icon>&nbsp;
+       Dashboard
+      </a> -->
+
+      &nbsp;&nbsp;
+      <ion-button fill="outline" [routerLink]="['/tabs/cbt-review', tt_id]">
+          <ion-icon name="book"></ion-icon>&nbsp;Continue to review
+      </ion-button>
+
+    </div>
+  </div>
+
+<ion-label class="sticky">
+  <ion-img src="../../../assets/sbox.png"></ion-img>
+</ion-label>
+</ion-content>

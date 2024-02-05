@@ -1,0 +1,205 @@
+<ion-header mode="ios" style="box-shadow: none;">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" slot="start" size="large" [routerLink]="['/tabs/home']" style=""></ion-icon>
+    <ion-title class="ion-text-center">
+      Leaderboard
+    </ion-title>
+  <ion-icon name="aperture-outline" slot="end" size="large" color="primary" [class.roll-once]="iconRolled"
+    (click)="onReload()">
+  </ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-select label="Learning Mode" interface="action-sheet" [(ngModel)]="mode"   (ionChange)="handleChange($event)" placeholder="Select category"
+        cancelText="Cancel Choice">
+        <ion-select-option value="assessment" >Practice Center</ion-select-option>
+        <ion-select-option value="study">Study Center</ion-select-option>
+
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item *ngIf="showCat === true">
+      <ion-select label="Exam" interface="action-sheet"  [(ngModel)]="exam"    (ionChange)="handleChangeExam($event)"  placeholder="Select Exam" cancelText="Cancel Choice">
+        <ion-select-option  value="1">UTME Simulator</ion-select-option>
+        <ion-select-option value="2">SSCE Test Engine</ion-select-option>
+        <ion-select-option value="3">BECE MasterPrep</ion-select-option>
+        <ion-select-option value="4">Common Entrance Prep</ion-select-option>
+
+
+      </ion-select>
+    </ion-item>
+
+<div *ngIf="examMode == true">
+
+<h5 *ngIf="topSubject.length !== 0" style="margin-left: 1rem;">SSCE Test Engine Leaders by Subject</h5>
+<swiper-container [slidesPerView]="2.5" autoplay style="margin-top: 1rem">
+  <swiper-slide *ngFor="let item of topSubject; let i = index"
+    [ngClass]="{'alternate-color1': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+
+    <ion-label>
+      <h6 class="no-wrap">{{ item.subjectname }} </h6>
+      <p class="no-wrap">{{ item.first_name }} {{ item.last_name }}</p>
+      <!-- <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score: {{ item?.correctly_answ }}/{{ item?.num_question }}
+      </p> -->
+      <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score:{{ item.score }}%
+      </p>
+    </ion-label>
+
+
+
+  </swiper-slide>
+
+
+</swiper-container>
+</div>
+<div *ngIf="examMode1 == true">
+
+<h5 *ngIf="topSubject1.length !== 0" style="margin-left: 1rem;">UTME Simulator Leaders by Subject</h5>
+<swiper-container [slidesPerView]="1.5" autoplay style="margin-top: 1rem">
+  <swiper-slide *ngFor="let item of topSubject1; let i = index"
+    [ngClass]="{'alternate-color1': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+
+    <ion-label>
+      <h6 class="no-wrap">{{ item.subjectname }}</h6>
+      <p class="no-wrap">{{ item.first_name }} {{ item.last_name }}</p>
+      <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score: {{ item.correctly_answ }}/{{
+        item.num_question }}
+      </p>
+    </ion-label>
+
+
+
+
+
+  </swiper-slide>
+
+
+</swiper-container>
+</div>
+
+<div *ngIf="examMode2 == true">
+
+<h5 *ngIf="topSubject2.length !== 0" style="margin-left: 1rem;">BECE MasterPrep Leaders by Subject</h5>
+<swiper-container [slidesPerView]="1.5" autoplay style="margin-top: 1rem">
+  <swiper-slide *ngFor="let item of topSubject2; let i = index"
+    [ngClass]="{'alternate-color1': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+
+    <ion-label>
+      <h6 class="no-wrap">{{ item.subjectname }} </h6>
+      <p class="no-wrap">{{ item.first_name }} {{ item.last_name }}</p>
+      <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score: {{ item.correctly_answ }}/{{
+        item.num_question }}
+      </p>
+    </ion-label>
+
+
+
+
+
+  </swiper-slide>
+
+
+</swiper-container>
+
+</div>
+
+<div *ngIf="examMode3 == true">
+
+<h5 *ngIf="topSubject3.length !== 0" style="margin-left: 1rem;">Common Entrance Prep Leaders by Subject</h5>
+<swiper-container [slidesPerView]="1.5" autoplay style="margin-top: 1rem">
+  <swiper-slide *ngFor="let item of topSubject3; let i = index"
+    [ngClass]="{'alternate-color1': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+
+    <ion-label>
+      <h6 class="no-wrap">{{ item.subjectname }} </h6>
+      <p class="no-wrap">{{ item.first_name }} {{ item.last_name }}</p>
+      <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score: {{ item.correctly_answ }}/{{
+        item.num_question }}
+      </p>
+    </ion-label>
+
+
+
+
+
+  </swiper-slide>
+
+
+</swiper-container>
+
+</div>
+
+
+
+
+
+
+    <ion-item *ngIf="showSub === true">
+      <ion-select label="Subject" interface="action-sheet"  (ionChange)="handleChangeSubj($event)"
+        placeholder="Select subject" cancelText="Cancel Choice">
+        <ion-select-option *ngFor="let item of subjectData" [value]="item.id">{{ item.subject_name }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item *ngIf="showSubEx === true">
+      <ion-select label="Subject" interface="action-sheet"   [(ngModel)]="math"   (ionChange)="handleChangeSubjEx($event)"
+        placeholder="Select subject" cancelText="Cancel Choice">
+        <ion-select-option *ngFor="let item of subjectDataEx" [value]="item.id">{{ item.subjectname }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <!-- <ion-item *ngIf="showAss === true">
+      <ion-select label="Subject" interface="action-sheet" placeholder="Select subject" cancelText="Cancel Choice">
+        <ion-select-option value="1">UTME Simulator</ion-select-option>
+        <ion-select-option value="2">WAEC Test Engine</ion-select-option>
+
+        <ion-select-option value="2">BECE Master Prep</ion-select-option>
+
+        <ion-select-option value="2">Common Entrance Prep</ion-select-option>
+
+      </ion-select>
+    </ion-item> -->
+
+    <div *ngIf="leaderData.length !== 0; else noLeaders">
+
+
+    <ion-item lines="none" *ngFor="let item of leaderData; let i = index"
+      [ngClass]="{'alternate-color': i % 4 === 1   || i % 4 === 3 || i % 4 === 0 || i % 4 === 2}">
+
+      <span class="position">{{ i+1 }}</span>
+
+      <ion-label>
+        <h3>{{ item.firstname }} {{ item.lastname }}</h3>
+        <p><ion-icon name="bar-chart-outline" size="medium"></ion-icon> Score: {{ item.correctly_answ }}/{{ item.num_of_test_questions }}</p>
+      </ion-label>
+
+
+      <ion-label slot="end">
+        <h3>{{ item.state }}</h3>
+
+      </ion-label>
+    </ion-item>
+    </div>
+
+    <ng-template #noLeaders>
+     <h5 class="ion-text-center" style="text-align: center; margin-top: 5rem;">
+      LeaderBoard is empty for the selected subject
+     </h5>
+    </ng-template>
+  </ion-list>
+    <!-- <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll> -->
+</ion-content>
