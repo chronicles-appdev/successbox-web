@@ -1,8 +1,8 @@
 {
-  "name": "web2",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "name": "SuccessBOX 2.0",
+  "version": "1",
+  "author": "Chronicles SDC",
+  "homepage": "https://chroniclesoft.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
