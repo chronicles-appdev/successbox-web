@@ -1,6 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 import { SubjTopicResponse, SubjTopic } from 'src/app/model/test.model';
 import { ApiServiceService } from 'src/app/services/api.service';
 import { ProcessService } from 'src/app/services/process.service';
@@ -20,7 +21,7 @@ topic_id!: any;
 dataRaw: any = []
   headData: any=[]
 
-  constructor(private processService: ProcessService, private routeAct: ActivatedRoute,private router: Router, private apiService: ApiServiceService,) {
+  constructor(  private loadingCtrl: LoadingController, private processService: ProcessService, private routeAct: ActivatedRoute,private router: Router, private apiService: ApiServiceService,) {
 
    }
 
@@ -61,9 +62,12 @@ dataRaw: any = []
       this.router.navigateByUrl('/tabs/test/'+ this.topic_id)
   }
 }
-  getContent(topic_id: any){
+  async getContent(topic_id: any){
 
-    console.log('Hi')
+    const loading = await this.loadingCtrl.create({message: 'Loading.....'});
+    await loading.present();
+
+
 
 
     const headers = new HttpHeaders({
@@ -80,18 +84,17 @@ dataRaw: any = []
           if (data.status == 'success') {
                console.log('Content successfully Fetched:', data);
             this.contentData = data.content
+               loading.dismiss();
               this.dataRaw = data
-
-            console.log(this.contentData)
 
 
           } else {
+               loading.dismiss();
 
-              console.log(data.message);
             }
         },
         error: (error) => {
-            console.log('Hi 3')
+              loading.dismiss();
           console.error('Error Fetching Content:', error);
         }
       });
