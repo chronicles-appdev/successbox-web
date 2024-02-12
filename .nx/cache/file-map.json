@@ -73,6 +73,22 @@
         "hash": "18210278994710539225"
       },
       {
+        "file": ".firebase/hosting.d3d3.cache",
+        "hash": "9128623906030179804"
+      },
+      {
+        "file": ".firebaserc",
+        "hash": "2566526806113922708"
+      },
+      {
+        "file": ".github/workflows/firebase-hosting-merge.yml",
+        "hash": "7773316234680169602"
+      },
+      {
+        "file": ".github/workflows/firebase-hosting-pull-request.yml",
+        "hash": "9349696920978801578"
+      },
+      {
         "file": ".gitignore",
         "hash": "91109559695469517"
       },
@@ -94,11 +110,15 @@
       },
       {
         "file": "capacitor.config.ts",
-        "hash": "16212392529800329453"
+        "hash": "13004372804714717549"
+      },
+      {
+        "file": "firebase.json",
+        "hash": "791960685221633024"
       },
       {
         "file": "ionic.config.json",
-        "hash": "1040733355046636437"
+        "hash": "5966131726978831330"
       },
       {
         "file": "karma.conf.js",
@@ -110,11 +130,11 @@
       },
       {
         "file": "package-lock.json",
-        "hash": "7275063041348609344"
+        "hash": "17933499832447911345"
       },
       {
         "file": "package.json",
-        "hash": "3456424166210729094"
+        "hash": "8825676984189509285"
       },
       {
         "file": "resources/android/icon/drawable-hdpi-icon.png",
@@ -514,7 +534,7 @@
       },
       {
         "file": "src/app/create/create.page.html",
-        "hash": "16918413320185232882"
+        "hash": "6735014847759589689"
       },
       {
         "file": "src/app/create/create.page.scss",
@@ -602,7 +622,7 @@
       },
       {
         "file": "src/app/home/home.page.html",
-        "hash": "449549865591730734"
+        "hash": "11369231977170181738"
       },
       {
         "file": "src/app/home/home.page.scss",
@@ -626,11 +646,11 @@
       },
       {
         "file": "src/app/library/book/book.page.html",
-        "hash": "17557275482230233006"
+        "hash": "9411531662500526297"
       },
       {
         "file": "src/app/library/book/book.page.scss",
-        "hash": "15501761545404526913"
+        "hash": "1175356290627997009"
       },
       {
         "file": "src/app/library/book/book.page.spec.ts",
@@ -650,7 +670,7 @@
       },
       {
         "file": "src/app/library/congrats/congrats.page.html",
-        "hash": "1247414449471917707"
+        "hash": "14695884189831207852"
       },
       {
         "file": "src/app/library/congrats/congrats.page.scss",
@@ -674,7 +694,7 @@
       },
       {
         "file": "src/app/library/reader/reader.page.html",
-        "hash": "16944023338179144146"
+        "hash": "4702939418359724907"
       },
       {
         "file": "src/app/library/reader/reader.page.scss",
@@ -686,7 +706,7 @@
       },
       {
         "file": "src/app/library/reader/reader.page.ts",
-        "hash": "1114934025728582332"
+        "hash": "13790665351958030482"
       },
       {
         "file": "src/app/library/score/score-routing.module.ts",
@@ -698,7 +718,7 @@
       },
       {
         "file": "src/app/library/score/score.page.html",
-        "hash": "15357652374464711353"
+        "hash": "10116605123795692542"
       },
       {
         "file": "src/app/library/score/score.page.scss",
@@ -794,7 +814,7 @@
       },
       {
         "file": "src/app/login/login.page.html",
-        "hash": "5648090409893812605"
+        "hash": "17198580078529314656"
       },
       {
         "file": "src/app/login/login.page.scss",
