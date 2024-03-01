@@ -866,11 +866,11 @@
       },
       {
         "file": "src/app/profile/profile.page.html",
-        "hash": "18082519126737912363"
+        "hash": "1501249437183218726"
       },
       {
         "file": "src/app/profile/profile.page.scss",
-        "hash": "6282781551710325282"
+        "hash": "1244446102326846780"
       },
       {
         "file": "src/app/profile/profile.page.spec.ts",
@@ -878,7 +878,7 @@
       },
       {
         "file": "src/app/profile/profile.page.ts",
-        "hash": "693958257515081770"
+        "hash": "13090114776301381217"
       },
       {
         "file": "src/app/services/api.service.spec.ts",
@@ -1174,7 +1174,7 @@
       },
       {
         "file": "src/index.html",
-        "hash": "10603950269724960873"
+        "hash": "3784010853788166236"
       },
       {
         "file": "src/keystore",

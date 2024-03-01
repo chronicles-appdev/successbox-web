@@ -80,7 +80,7 @@ export class CbtReviewPage implements OnInit {
 
 
   async openModal(imageUrl: string) {
-    this.modalImage = 'https://ulearnlms.net/igcse/images/'+imageUrl;
+    this.modalImage = 'https://185-167-96-73.cloud-xip.com/images_1/'+imageUrl;
     await this.modal.present();
   }
 
