@@ -16,7 +16,7 @@ register();
 export class HomePage {
   firstname: string | null = ''
   lastname: string | null =''
-  loadNext: boolean  = false
+  loadNext = false
   class_id!: string | null
   isActionSheetOpen = false;
   recentData: any[] = []
